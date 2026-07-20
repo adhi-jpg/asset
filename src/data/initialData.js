@@ -1,0 +1,330 @@
+export const INITIAL_EQUIPMENT = [
+  {
+    id: "EQ-VENT-001",
+    name: "Puritan Bennett 980 Ventilator",
+    brand: "Medtronic",
+    model: "PB980",
+    serialNumber: "SN-980-44129",
+    department: "ICU",
+    location: "ICU Room 402 - Bed A",
+    status: "In-Use",
+    isCriticalLifeSupport: true,
+    purchaseCost: 32500,
+    procurementDate: "2024-03-15",
+    lastMaintenanceDate: "2026-05-10",
+    maintenanceFrequencyDays: 90, // Delta T
+    nextMaintenanceDate: "2026-08-08", // T_next = T_last + Delta T
+    calibrationDueDate: "2026-08-08",
+    vendorId: "VEND-MEDTRONIC",
+    contractType: "CMC", // Comprehensive Maintenance Contract
+    contractExpiryDate: "2027-03-14",
+    totalBreakdowns: 1,
+    avgRepairTimeHours: 2.5
+  },
+  {
+    id: "EQ-DEFIB-002",
+    name: "ZOLL R Series Biphasic Defibrillator",
+    brand: "ZOLL Medical",
+    model: "R-Series Plus",
+    serialNumber: "SN-ZOL-77821",
+    department: "Emergency",
+    location: "ER Crash Cart 01",
+    status: "Available",
+    isCriticalLifeSupport: true,
+    purchaseCost: 18400,
+    procurementDate: "2023-11-20",
+    lastMaintenanceDate: "2026-07-15",
+    maintenanceFrequencyDays: 60,
+    nextMaintenanceDate: "2026-09-13",
+    calibrationDueDate: "2026-09-13",
+    vendorId: "VEND-ZOLL",
+    contractType: "AMC",
+    contractExpiryDate: "2026-11-19",
+    totalBreakdowns: 0,
+    avgRepairTimeHours: 1.2
+  },
+  {
+    id: "EQ-MRI-003",
+    name: "MAGNETOM Vida 3T MRI Scanner",
+    brand: "Siemens Healthineers",
+    model: "Vida 3T",
+    serialNumber: "SN-SIE-33901",
+    department: "Radiology",
+    location: "Imaging Suite 2",
+    status: "Under Maintenance",
+    isCriticalLifeSupport: false,
+    purchaseCost: 1250000,
+    procurementDate: "2022-06-10",
+    lastMaintenanceDate: "2026-07-18",
+    maintenanceFrequencyDays: 30,
+    nextMaintenanceDate: "2026-08-17",
+    calibrationDueDate: "2026-07-25", // Due within 7 days!
+    vendorId: "VEND-SIEMENS",
+    contractType: "CMC",
+    contractExpiryDate: "2027-06-09",
+    totalBreakdowns: 3,
+    avgRepairTimeHours: 5.8
+  },
+  {
+    id: "EQ-ANESTH-004",
+    name: "Aisys CS2 Anesthesia Workstation",
+    brand: "GE HealthCare",
+    model: "Aisys CS2",
+    serialNumber: "SN-GEH-10294",
+    department: "Operating Theater",
+    location: "OT-03 Surgical Suite",
+    status: "Broken",
+    isCriticalLifeSupport: true,
+    purchaseCost: 64000,
+    procurementDate: "2024-01-08",
+    lastMaintenanceDate: "2026-04-12",
+    maintenanceFrequencyDays: 90,
+    nextMaintenanceDate: "2026-07-11", // Overdue!
+    calibrationDueDate: "2026-07-11",
+    vendorId: "VEND-GE",
+    contractType: "CMC",
+    contractExpiryDate: "2027-01-07",
+    totalBreakdowns: 2,
+    avgRepairTimeHours: 4.0
+  },
+  {
+    id: "EQ-PUMP-005",
+    name: "Alaris System Syringe Pump",
+    brand: "BD Medical",
+    model: "Alaris 8015",
+    serialNumber: "SN-BDM-99120",
+    department: "Pediatrics",
+    location: "NICU Station B",
+    status: "Available",
+    isCriticalLifeSupport: false,
+    purchaseCost: 4500,
+    procurementDate: "2025-02-14",
+    lastMaintenanceDate: "2026-06-01",
+    maintenanceFrequencyDays: 180,
+    nextMaintenanceDate: "2026-11-28",
+    calibrationDueDate: "2026-11-28",
+    vendorId: "VEND-BD",
+    contractType: "Warranty",
+    contractExpiryDate: "2027-02-13",
+    totalBreakdowns: 0,
+    avgRepairTimeHours: 0.8
+  },
+  {
+    id: "EQ-DIAL-006",
+    name: "5008S CorDiax Hemodialysis System",
+    brand: "Fresenius Medical",
+    model: "5008S",
+    serialNumber: "SN-FMC-50291",
+    department: "Nephrology",
+    location: "Dialysis Unit Bed 06",
+    status: "In-Use",
+    isCriticalLifeSupport: true,
+    purchaseCost: 42000,
+    procurementDate: "2023-08-30",
+    lastMaintenanceDate: "2026-05-25",
+    maintenanceFrequencyDays: 60,
+    nextMaintenanceDate: "2026-07-24", // Due within 7 days!
+    calibrationDueDate: "2026-07-24",
+    vendorId: "VEND-FRESENIUS",
+    contractType: "AMC",
+    contractExpiryDate: "2026-08-29",
+    totalBreakdowns: 1,
+    avgRepairTimeHours: 3.2
+  },
+  {
+    id: "EQ-MON-007",
+    name: "IntelliVue MX800 Patient Monitor",
+    brand: "Philips Healthcare",
+    model: "MX800",
+    serialNumber: "SN-PHI-88214",
+    department: "Cardiology",
+    location: "CCU Bed 12",
+    status: "Available",
+    isCriticalLifeSupport: true,
+    purchaseCost: 16500,
+    procurementDate: "2024-06-18",
+    lastMaintenanceDate: "2026-07-02",
+    maintenanceFrequencyDays: 90,
+    nextMaintenanceDate: "2026-09-30",
+    calibrationDueDate: "2026-09-30",
+    vendorId: "VEND-PHILIPS",
+    contractType: "CMC",
+    contractExpiryDate: "2027-06-17",
+    totalBreakdowns: 0,
+    avgRepairTimeHours: 1.5
+  },
+  {
+    id: "EQ-CT-008",
+    name: "Revolution Apex 256-Slice CT",
+    brand: "GE HealthCare",
+    model: "Revolution Apex",
+    serialNumber: "SN-GEH-CT882",
+    department: "Radiology",
+    location: "CT Suite 1",
+    status: "Available",
+    isCriticalLifeSupport: false,
+    purchaseCost: 980000,
+    procurementDate: "2023-04-10",
+    lastMaintenanceDate: "2026-07-10",
+    maintenanceFrequencyDays: 30,
+    nextMaintenanceDate: "2026-08-09",
+    calibrationDueDate: "2026-08-09",
+    vendorId: "VEND-GE",
+    contractType: "CMC",
+    contractExpiryDate: "2027-04-09",
+    totalBreakdowns: 2,
+    avgRepairTimeHours: 6.2
+  }
+];
+
+export const INITIAL_TICKETS = [
+  {
+    id: "WO-2026-0891",
+    assetId: "EQ-ANESTH-004",
+    assetName: "Aisys CS2 Anesthesia Workstation",
+    department: "Operating Theater",
+    reportedBy: "Dr. Sarah Jenkins (Anesthesiologist)",
+    reportedRole: "Floor Staff",
+    reportedAt: "2026-07-20T10:15:00",
+    issueCategory: "Gas Flow Meter Calibration Failure",
+    description: "Flow sensor error #E-409 triggered during pre-op check. Nitrous oxide flow reading unstable.",
+    priority: "Urgent", // Urgent, High, Medium, Low
+    status: "In Progress", // Open, In Progress, Parts Awaiting, Resolved
+    assignedTo: "Eng. Mark Davis (Biomedical Lead)",
+    slaHoursRemaining: 1.5,
+    totalSlaHours: 4,
+    resolutionNotes: "",
+    partsReplaced: []
+  },
+  {
+    id: "WO-2026-0885",
+    assetId: "EQ-MRI-003",
+    assetName: "MAGNETOM Vida 3T MRI Scanner",
+    department: "Radiology",
+    reportedBy: "Nurse David Chen",
+    reportedRole: "Floor Staff",
+    reportedAt: "2026-07-18T14:30:00",
+    issueCategory: "Cryogen Pressure Warning",
+    description: "Scheduled preventive maintenance & helium pressure inspection.",
+    priority: "High",
+    status: "Parts Awaiting",
+    assignedTo: "Eng. Alex Rivera (Senior Clinical Engineer)",
+    slaHoursRemaining: 8,
+    totalSlaHours: 24,
+    resolutionNotes: "Awaiting replacement cold head valve seal kit from Siemens.",
+    partsReplaced: [
+      { partName: "Cold Head Valve Seal", cost: 1850, date: "2026-07-19" }
+    ]
+  },
+  {
+    id: "WO-2026-0870",
+    assetId: "EQ-VENT-001",
+    assetName: "Puritan Bennett 980 Ventilator",
+    department: "ICU",
+    reportedBy: "Dr. Marcus Vance",
+    reportedRole: "Floor Staff",
+    reportedAt: "2026-07-10T08:00:00",
+    issueCategory: "O2 Sensor Drift",
+    description: "Oxygen cell concentration readout drifted by +6%. Required recalibration and O2 cell replacement.",
+    priority: "Urgent",
+    status: "Resolved",
+    assignedTo: "Eng. Mark Davis (Biomedical Lead)",
+    slaHoursRemaining: 0,
+    totalSlaHours: 4,
+    resolvedAt: "2026-07-10T10:30:00",
+    repairTimeHours: 2.5,
+    resolutionNotes: "Replaced Medtronic O2 sensor cartridge (Part #O2-980-MX). Recalibrated 21%-100% test matrix successfully.",
+    partsReplaced: [
+      { partName: "O2 Sensor Cartridge #O2-980-MX", cost: 420, date: "2026-07-10" }
+    ]
+  }
+];
+
+export const INITIAL_VENDORS = [
+  {
+    id: "VEND-MEDTRONIC",
+    name: "Medtronic Critical Care",
+    contactPerson: "Elena Rostova (Account Manager)",
+    email: "support.medtronic@healthservices.com",
+    phone: "+1 (800) 555-0192",
+    activeContracts: 4,
+    avgResponseHours: 2.1,
+    rating: 4.9
+  },
+  {
+    id: "VEND-SIEMENS",
+    name: "Siemens Healthineers Solutions",
+    contactPerson: "Klaus Weber (Field Engineer Lead)",
+    email: "service.siemens@healthineers.com",
+    phone: "+1 (800) 555-0144",
+    activeContracts: 2,
+    avgResponseHours: 3.5,
+    rating: 4.7
+  },
+  {
+    id: "VEND-GE",
+    name: "GE HealthCare Global",
+    contactPerson: "Amanda Miller",
+    email: "customercare@gehealthcare.com",
+    phone: "+1 (800) 555-0188",
+    activeContracts: 5,
+    avgResponseHours: 2.8,
+    rating: 4.8
+  },
+  {
+    id: "VEND-PHILIPS",
+    name: "Philips Healthcare Services",
+    contactPerson: "Robert Chang",
+    email: "support@philipsmedical.com",
+    phone: "+1 (800) 555-0111",
+    activeContracts: 3,
+    avgResponseHours: 1.9,
+    rating: 4.9
+  },
+  {
+    id: "VEND-ZOLL",
+    name: "ZOLL Resuscitation Systems",
+    contactPerson: "Patricia Hayes",
+    email: "service@zoll.com",
+    phone: "+1 (800) 555-0133",
+    activeContracts: 2,
+    avgResponseHours: 1.5,
+    rating: 5.0
+  }
+];
+
+export const INITIAL_AUDIT_LOGS = [
+  {
+    id: "LOG-10098",
+    timestamp: "2026-07-20T10:15:05",
+    userId: "USER-FLOOR-NURSE-04",
+    userName: "Nurse David Chen",
+    role: "Floor Staff",
+    action: "BREAKDOWN_REPORTED",
+    targetId: "EQ-ANESTH-004",
+    details: "Created urgent breakdown ticket WO-2026-0891 for Aisys CS2 Anesthesia Workstation. Status set to BROKEN.",
+    hash: "0x8f9a2b...e41c (AES-256 Validated)"
+  },
+  {
+    id: "LOG-10097",
+    timestamp: "2026-07-18T14:30:12",
+    userId: "USER-BIOMED-01",
+    userName: "Eng. Mark Davis",
+    role: "Biomedical Engineer",
+    action: "MAINTENANCE_LOGGED",
+    targetId: "EQ-MRI-003",
+    details: "Initiated PPM validation and logged parts request for Cold Head Valve Seal.",
+    hash: "0x3e71d4...f901 (AES-256 Validated)"
+  },
+  {
+    id: "LOG-10096",
+    timestamp: "2026-07-15T09:12:44",
+    userId: "USER-ADMIN-01",
+    userName: "Admin Sarah Mitchell",
+    role: "System Administrator",
+    action: "ASSET_CREATED",
+    targetId: "EQ-PUMP-005",
+    details: "Registered new asset Alaris System Syringe Pump with dynamic QR signature.",
+    hash: "0x12c4b8...a77e (AES-256 Validated)"
+  }
+];
